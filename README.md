@@ -6,6 +6,21 @@
   </picture>
 </p>
 
+<h3 align="center">Hiding Fakes and Framing Real Footage:<br>A Benchmark and a Robust Detector for AI-Generated Political Video</h3>
+
+<p align="center">
+  <b>Mert Onur Cakiroglu</b><sup>1</sup> &nbsp;·&nbsp;
+  <b>Elham Buxton</b><sup>2</sup> &nbsp;·&nbsp;
+  <b>Mehmet Dalkilic</b><sup>1</sup> &nbsp;·&nbsp;
+  <b>Hasan Kurban</b><sup>3,*</sup>
+  <br>
+  <sup>1</sup>Indiana University Bloomington &nbsp;&nbsp;
+  <sup>2</sup>University of Illinois Springfield &nbsp;&nbsp;
+  <sup>3</sup>Hamad Bin Khalifa University
+  <br>
+  <sub><sup>*</sup>Corresponding author &nbsp;·&nbsp; Kurban Intelligence Lab</sub>
+</p>
+
 <p align="center">
   <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white"></a>
   <a href="#data"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
@@ -150,8 +165,8 @@ through the contact on the dataset card and we will remove it.
 
 ```bibtex
 @inproceedings{civicbench2027,
-  title     = {<paper title>},
-  author    = {<authors>},
+  title     = {Hiding Fakes and Framing Real Footage: A Benchmark and a Robust Detector for AI-Generated Political Video},
+  author    = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
   booktitle = {<venue>},
   year      = {2027}
 }

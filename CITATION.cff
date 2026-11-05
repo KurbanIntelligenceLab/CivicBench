@@ -3,11 +3,22 @@ message: "If you use CivicBench, please cite the paper below."
 title: "CivicBench"
 type: software
 license: Apache-2.0
-authors:
-  - name: "The CivicBench authors"
+repository-code: "https://github.com/KurbanIntelligenceLab/CivicBench"
+authors: &authors
+  - family-names: Cakiroglu
+    given-names: Mert Onur
+    affiliation: "Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington"
+  - family-names: Buxton
+    given-names: Elham
+    affiliation: "Department of Computer Science, University of Illinois Springfield"
+  - family-names: Dalkilic
+    given-names: Mehmet
+    affiliation: "Luddy School of Informatics, Computing, and Engineering, Indiana University Bloomington"
+  - family-names: Kurban
+    given-names: Hasan
+    affiliation: "College of Science and Engineering, Hamad Bin Khalifa University"
 preferred-citation:
   type: conference-paper
-  title: "<paper title>"
-  authors:
-    - name: "<authors>"
+  title: "Hiding Fakes and Framing Real Footage: A Benchmark and a Robust Detector for AI-Generated Political Video"
+  authors: *authors
   year: 2027
