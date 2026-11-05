@@ -143,7 +143,8 @@ external political footage. To add a detector, open a pull request with the `res
 
 Tau-Anchor is the detector from the paper. It fine-tunes an image encoder that was pre-trained on attacked images,
 attacks real and generated clips during training, and adds a margin term for the fakes nearest its deployed threshold.
-Its code and weights will be in [`tau_anchor/`](tau_anchor/).
+Its code, exact training recipe and model card are in [`tau_anchor/`](tau_anchor/). The weights are published on
+Hugging Face with the release.
 
 ## Repository layout
 

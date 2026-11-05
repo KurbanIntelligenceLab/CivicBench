@@ -29,6 +29,9 @@ dependencies = ["numpy>=1.21", "torch>=1.13"]
 data = ["pyarrow>=10", "Pillow>=9", "datasets>=2.14"]
 fancy = ["rich>=13"]
 test = ["pytest>=7"]
+# Tau-Anchor (tau_anchor/, used from a clone of this repository): scoring, and retraining
+tau-anchor = ["torch>=2.0", "huggingface_hub>=0.20"]
+tau-anchor-train = ["torch>=2.0", "huggingface_hub>=0.20", "scikit-learn>=1.0", "av>=10", "Pillow>=9"]
 
 [project.scripts]
 civicbench = "civicbench.cli:main"

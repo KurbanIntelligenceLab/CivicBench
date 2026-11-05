@@ -1,0 +1,50 @@
+{
+  "name": "Tau-Anchor",
+  "description": "The paper's training recipe. train.py reads 'recipe'; the other keys document the released model.",
+  "encoder": {
+    "repo": "zw123/delta_clip_h14_336",
+    "revision": "724baea4b4f40c477a05a674e1b24cd4638f8796",
+    "file": "open_clip_pytorch_model.bin",
+    "architecture": "ViT-H/14, 336 px, width 1280, 32 blocks, 16 heads, MLP 5120, average pooling, 1024-d output",
+    "preprocessing": "bilinear resize to 336 x 336 with antialiasing, ImageNet mean and std"
+  },
+  "input": {"frames": 11, "size": 512, "fps": 8},
+  "released_model": {
+    "training_data": "AIGVDBench folds 1-4 (8,000 real and 3,984 generated clips)",
+    "test_fold": 0,
+    "steps": 4494,
+    "tau_deployed": 1.09765625,
+    "tau_civicbench": 1.7751145362854004
+  },
+  "recipe": {
+    "blocks": 4,
+    "frames": 2,
+    "batch_size": 4,
+    "epochs": 1.5,
+    "lr_encoder": 1e-05,
+    "lr_head": 0.001,
+    "weight_decay": 0.0001,
+    "eps": 4.0,
+    "pgd_steps": 1,
+    "attack_side": "both",
+    "clean_weight": 1.0,
+    "lambda_preserve": 1.0,
+    "margin": true,
+    "kappa": 0.15,
+    "gamma": 1.0,
+    "tau_quantile": 0.95,
+    "tau_clips": 256,
+    "tau_every": 100,
+    "generator_weights": "auto",
+    "ema_decay": 0.999,
+    "amp": true,
+    "fpr": 0.05,
+    "strict_fpr": 0.01,
+    "probe_c": 10.0,
+    "probe_max_iter": 3000,
+    "seed": 0,
+    "workers": 7,
+    "ckpt_every": 200,
+    "print_every": 500
+  }
+}
