@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "civicbench"
+version = "0.1.0"
+description = "Load CivicBench and attack your own video detector with the benchmark's protocol (PGD, APGD and Square on the 8-bit grid)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"            # SPDX expression (PEP 639); it replaces the License classifier, which setuptools now rejects alongside it
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "The CivicBench authors" }]
+keywords = ["video", "deepfake detection", "adversarial robustness", "benchmark", "generated video"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.21", "torch>=1.13"]
+
+[project.optional-dependencies]
+data = ["pyarrow>=10", "Pillow>=9", "datasets>=2.14"]
+fancy = ["rich>=13"]
+test = ["pytest>=7"]
+
+[project.scripts]
+civicbench = "civicbench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
