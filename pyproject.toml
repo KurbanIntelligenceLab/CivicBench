@@ -42,7 +42,7 @@ tau-anchor-train = ["torch>=2.0", "huggingface_hub>=0.20", "scikit-learn>=1.0", 
 [project.urls]
 Homepage = "https://github.com/KurbanIntelligenceLab/CivicBench"
 Documentation = "https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/docs/toolkit.md"
-Dataset = "https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-real"
+Dataset = "https://huggingface.co/datasets/kurbanintelligencelab/CivicBench"
 Issues = "https://github.com/KurbanIntelligenceLab/CivicBench/issues"
 
 [project.scripts]

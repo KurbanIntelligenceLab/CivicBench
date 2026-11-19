@@ -99,9 +99,7 @@ class TestLoad(unittest.TestCase):
 
 class TestDefaultSource(unittest.TestCase):
     def test_default_repo_is_the_release(self):
-        repos = civicbench.DEFAULT_REPO
-        self.assertEqual(len(repos), 2)
-        self.assertTrue(repos[0].endswith("/CivicBench-real") and repos[1].endswith("/CivicBench-generated"))
+        self.assertEqual(civicbench.DEFAULT_REPO, "kurbanintelligencelab/CivicBench")
 
     def test_empty_source_raises(self):
         with self.assertRaises(ValueError):

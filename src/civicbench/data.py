@@ -14,16 +14,14 @@ import glob
 import hashlib
 import io
 import os
-from typing import Iterator, List, NamedTuple, Optional, Sequence, Union
+from typing import Iterator, NamedTuple, Optional, Sequence, Union
 
 import numpy as np
 
 from civicbench._progress import Progress
 
-# CivicBench on Hugging Face. The real clips are open. The generated clips are gated with automatic
-# approval: accept the terms once on the dataset page, then log in with `hf auth login`.
-HF_ORG = "kurbanintelligencelab"
-DEFAULT_REPO: List[str] = [f"{HF_ORG}/CivicBench-real", f"{HF_ORG}/CivicBench-generated"]
+# CivicBench on Hugging Face: one open dataset with the real and the generated clips.
+DEFAULT_REPO: str = "kurbanintelligencelab/CivicBench"
 
 
 class Clip(NamedTuple):
@@ -105,15 +103,7 @@ class ClipSet:
             import datasets
         except ImportError as e:            # pragma: no cover - depends on the environment
             raise ImportError("loading from a Hugging Face repo needs `pip install civicbench[data]`") from e
-        try:
-            ds = datasets.load_dataset(repo, split=self.split or "test", streaming=True)
-        except Exception as e:
-            if "gated" in str(e).lower() or "401" in str(e) or "403" in str(e):
-                raise PermissionError(
-                    f"{repo} is gated. Accept its terms once at https://huggingface.co/datasets/{repo} "
-                    "and log in with `hf auth login`, then run again.") from e
-            raise
-        yield from ds
+        yield from datasets.load_dataset(repo, split=self.split or "test", streaming=True)
 
     def _n_rows(self) -> Optional[int]:
         try:

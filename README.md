@@ -23,7 +23,7 @@
 
 <p align="center">
   <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white"></a>
-  <a href="https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-real"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
+  <a href="https://huggingface.co/datasets/kurbanintelligencelab/CivicBench"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://pypi.org/project/civicbench/"><img alt="PyPI" src="https://img.shields.io/badge/pip%20install-civicbench-3775A9?style=flat-square&logo=pypi&logoColor=white"></a>
   <a href="https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A7BBB?style=flat-square"></a>
   <img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white">
@@ -108,10 +108,12 @@ difference from the paper's code.
 
 ## Data
 
-| | Repository | Access | License |
-|---|---|---|---|
-| **Real** | [CivicBench-real](https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-real): 2,632 clips of briefings, speeches, legislatures, and protests | Open, no form | Each clip's own: public domain, CC BY or CC BY-SA |
-| **Generated** | [CivicBench-generated](https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-generated): 10,800 clips from eight open text-to-video generators, with prompts and settings | Gated, automatic approval | Research on detection, see the dataset card |
+One open dataset, [kurbanintelligencelab/CivicBench](https://huggingface.co/datasets/kurbanintelligencelab/CivicBench), with no login and no form.
+
+| | Clips | License |
+|---|---|---|
+| **Real** | 2,632 clips of briefings, speeches, legislatures, and protests | Each clip's own: public domain, CC BY or CC BY-SA |
+| **Generated** | 10,800 clips from eight open text-to-video generators, with prompts, seeds, and settings | Research on detection, with each generator's terms (see the dataset card) |
 
 Each real clip lists its creator, license, source page, start time and the changes we made. The official test input is
 11 frames of 512 x 512 per clip, stored as lossless PNG with checksums.
@@ -158,8 +160,7 @@ docs/               toolkit guide and assets
 
 ## Responsible use
 
-Framing perturbations of real clips are released only as perturbations, behind the gated repository, and are never
-applied to the footage. The generated clips show invented people. If a clip resembles a real person, report it
+The release contains no attacked real clips, and thus no ready-made forgeries of real footage. The generated clips show invented people. If a clip resembles a real person, report it
 through the contact on the dataset card and we will remove it.
 
 ## Citation
