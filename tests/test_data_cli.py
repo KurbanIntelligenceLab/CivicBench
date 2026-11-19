@@ -97,12 +97,15 @@ class TestLoad(unittest.TestCase):
         self.assertEqual(sorted(res["framing_rate"], key=int), ["1", "2", "4", "8", "16"])
 
 
-class TestNoSource(unittest.TestCase):
-    def test_default_repo_is_withheld(self):
-        self.assertIsNone(civicbench.DEFAULT_REPO)
-        with self.assertRaises(ValueError) as ctx:
-            civicbench.load()
-        self.assertIn("withheld", str(ctx.exception))
+class TestDefaultSource(unittest.TestCase):
+    def test_default_repo_is_the_release(self):
+        repos = civicbench.DEFAULT_REPO
+        self.assertEqual(len(repos), 2)
+        self.assertTrue(repos[0].endswith("/CivicBench-real") and repos[1].endswith("/CivicBench-generated"))
+
+    def test_empty_source_raises(self):
+        with self.assertRaises(ValueError):
+            civicbench.load([])
 
 
 if __name__ == "__main__":

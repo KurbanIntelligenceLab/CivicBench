@@ -14,15 +14,16 @@ import glob
 import hashlib
 import io
 import os
-from typing import Iterator, NamedTuple, Optional, Sequence, Union
+from typing import Iterator, List, NamedTuple, Optional, Sequence, Union
 
 import numpy as np
 
 from civicbench._progress import Progress
 
-# The Hugging Face repo ids are withheld in this anonymous release. Pass a repo id or a local
-# directory to ``load`` explicitly.
-DEFAULT_REPO: Optional[str] = None
+# CivicBench on Hugging Face. The real clips are open. The generated clips are gated with automatic
+# approval: accept the terms once on the dataset page, then log in with `hf auth login`.
+HF_ORG = "kurbanintelligencelab"
+DEFAULT_REPO: List[str] = [f"{HF_ORG}/CivicBench-real", f"{HF_ORG}/CivicBench-generated"]
 
 
 class Clip(NamedTuple):
@@ -104,7 +105,15 @@ class ClipSet:
             import datasets
         except ImportError as e:            # pragma: no cover - depends on the environment
             raise ImportError("loading from a Hugging Face repo needs `pip install civicbench[data]`") from e
-        yield from datasets.load_dataset(repo, split=self.split or "test", streaming=True)
+        try:
+            ds = datasets.load_dataset(repo, split=self.split or "test", streaming=True)
+        except Exception as e:
+            if "gated" in str(e).lower() or "401" in str(e) or "403" in str(e):
+                raise PermissionError(
+                    f"{repo} is gated. Accept its terms once at https://huggingface.co/datasets/{repo} "
+                    "and log in with `hf auth login`, then run again.") from e
+            raise
+        yield from ds
 
     def _n_rows(self) -> Optional[int]:
         try:
@@ -161,11 +170,10 @@ def load(source: Union[str, Sequence[str], None] = None, split: Optional[str] = 
     """
     if source is None:
         source = DEFAULT_REPO
-    if source is None:
-        raise ValueError("No CivicBench source given. The Hugging Face repo ids are withheld in this anonymous "
-                         "release: pass a repo id, e.g. civicbench.load('<org>/<name>'), or a local directory of "
-                         "parquet shards, e.g. civicbench.load('path/to/civicbench/data').")
     sources = [source] if isinstance(source, (str, os.PathLike)) else list(source)
+    if not sources:
+        raise ValueError("No CivicBench source given: pass a Hugging Face repo id or a local directory of "
+                         "parquet shards, e.g. civicbench.load('path/to/civicbench/data').")
     return ClipSet([os.fspath(s) for s in sources], split, label, limit, verify, batch_size, quiet)
 
 

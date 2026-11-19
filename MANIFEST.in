@@ -1,0 +1,2 @@
+# The tests need tests/_toy.py and tau_anchor/ (repository only), so the sdist ships the package alone.
+prune tests

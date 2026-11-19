@@ -250,11 +250,13 @@ territories of use and the use of its outputs to improve other AI models.
 ## Citation
 
 ```bibtex
-@inproceedings{civicbench2027,
-  title     = {Hiding Fakes and Framing Real Footage: A Benchmark and a Robust Detector for AI-Generated Political Video},
-  author    = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
-  booktitle = {<venue>},
-  year      = {2027}
+@misc{cakiroglu2026civicbench,
+  title         = {CivicBench: Robust Detection of AI-Generated Political Video},
+  author        = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
+  year          = {2026},
+  eprint        = {XXXX.XXXXX},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
 }
 
 @article{wang2025double,

@@ -18,7 +18,8 @@ authors: &authors
     given-names: Hasan
     affiliation: "College of Science and Engineering, Hamad Bin Khalifa University"
 preferred-citation:
-  type: conference-paper
-  title: "Hiding Fakes and Framing Real Footage: A Benchmark and a Robust Detector for AI-Generated Political Video"
+  type: article
+  title: "CivicBench: Robust Detection of AI-Generated Political Video"
   authors: *authors
-  year: 2027
+  journal: "arXiv preprint arXiv:XXXX.XXXXX"
+  year: 2026

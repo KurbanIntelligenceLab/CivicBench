@@ -56,10 +56,10 @@ probes = [civicbench.attack(my_detector, c.frames, res["tau"], "evasion", budget
 civicbench.predict_survival(probes, budget=4, probe_budget=1)["evasion"]["predicted_keep"]
 ```
 
-The Hugging Face repo ids are withheld in this anonymous release (`civicbench.DEFAULT_REPO` is
-`None`, and `load()` without a source raises an error that says so). `load` accepts a repo id, a
-local directory, a single parquet file or a list of them (for example the real and the generated
-repo), and yields `Clip(clip_id, frames, label, meta)` tuples with `label` 0 = real, 1 = generated.
+`load()` without a source streams both Hugging Face repos, the open real clips and the gated
+generated clips (`civicbench.DEFAULT_REPO`). Accept the generated repo's terms once on its dataset
+page and log in with `hf auth login`. `load` also accepts a repo id, a local directory, a single
+parquet file or a list of them, and yields `Clip(clip_id, frames, label, meta)` tuples with `label` 0 = real, 1 = generated.
 It checks each clip's `frames_sha256` after decoding. `evaluate` also takes any re-iterable of
 `(clip_id, frames_u8, label[, meta])` tuples.
 

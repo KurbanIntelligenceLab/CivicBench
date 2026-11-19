@@ -1,7 +1,8 @@
 name: publish
 on:
   release:
-    types: [published]
+    types: [published]        # a GitHub release publishes to PyPI
+  workflow_dispatch:          # a manual run publishes to TestPyPI (dry run)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,12 +17,28 @@ jobs:
         with:
           name: dist
           path: dist/
+  testpypi:
+    if: github.event_name == 'workflow_dispatch'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: testpypi
+    permissions:
+      id-token: write   # trusted publishing: no token stored in the repository
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
   pypi:
+    if: github.event_name == 'release'
     needs: build
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
-      id-token: write   # PyPI trusted publishing: no token stored in the repository
+      id-token: write   # trusted publishing: no token stored in the repository
     steps:
       - uses: actions/download-artifact@v4
         with:

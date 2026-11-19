@@ -1,12 +1,12 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.jpg">
-    <source media="(prefers-color-scheme: light)" srcset="docs/assets/banner-light.jpg">
-    <img alt="CivicBench. Hiding fakes. Framing real footage." src="docs/assets/banner-light.jpg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-dark.jpg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-light.jpg">
+    <img alt="CivicBench. Hiding fakes. Framing real footage." src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-light.jpg" width="100%">
   </picture>
 </p>
 
-<h3 align="center">Hiding Fakes and Framing Real Footage:<br>A Benchmark and a Robust Detector for AI-Generated Political Video</h3>
+<h3 align="center">CivicBench: Robust Detection of AI-Generated Political Video</h3>
 
 <p align="center">
   <b>Mert Onur Cakiroglu</b><sup>1</sup> &nbsp;·&nbsp;
@@ -23,18 +23,18 @@
 
 <p align="center">
   <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white"></a>
-  <a href="#data"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
-  <a href="#install"><img alt="PyPI" src="https://img.shields.io/badge/pip%20install-civicbench-3775A9?style=flat-square&logo=pypi&logoColor=white"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A7BBB?style=flat-square"></a>
+  <a href="https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-real"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
+  <a href="https://pypi.org/project/civicbench/"><img alt="PyPI" src="https://img.shields.io/badge/pip%20install-civicbench-3775A9?style=flat-square&logo=pypi&logoColor=white"></a>
+  <a href="https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A7BBB?style=flat-square"></a>
   <img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white">
 </p>
 
 <p align="center">
   <a href="#quick-start"><b>Quick start</b></a> &nbsp;·&nbsp;
   <a href="#data"><b>Data</b></a> &nbsp;·&nbsp;
-  <a href="docs/toolkit.md"><b>Toolkit guide</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/docs/toolkit.md"><b>Toolkit guide</b></a> &nbsp;·&nbsp;
   <a href="#leaderboard"><b>Leaderboard</b></a> &nbsp;·&nbsp;
-  <a href="tau_anchor/"><b>Tau-Anchor</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/KurbanIntelligenceLab/CivicBench/tree/main/tau_anchor"><b>Tau-Anchor</b></a> &nbsp;·&nbsp;
   <a href="#citation"><b>Citation</b></a>
 </p>
 
@@ -48,7 +48,7 @@ wants to dismiss a real video can then point to the detector's verdict.
 CivicBench measures both, on clips that can be shared, and one command runs it on your own detector.
 
 <p align="center">
-  <img alt="Attacks on political video in both directions" src="docs/assets/teaser.jpg" width="100%">
+  <img alt="Attacks on political video in both directions" src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/teaser.jpg" width="100%">
 </p>
 
 ## Highlights
@@ -87,7 +87,7 @@ civicbench evaluate --detector my_lab.detector:build --budgets 1,2,4,8,16 --out 
 ```
 
 <p align="center">
-  <img alt="civicbench in a terminal" src="docs/assets/terminal.png" width="100%">
+  <img alt="civicbench in a terminal" src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/terminal.png" width="100%">
 </p>
 
 <sub>Output of <code>examples/demo_toy.py</code>: a toy detector on synthetic clips, so the numbers carry no meaning.
@@ -103,15 +103,15 @@ A detector is any callable that maps frames to one score.
 | **Output** | One score. Higher means generated. A clip is flagged when its score reaches the threshold. |
 | **Gradients** | PGD and APGD need a differentiable score. Square needs scores only. |
 
-The [toolkit guide](docs/toolkit.md) covers single-clip attacks, custom budgets, the survival prediction and every
+The [toolkit guide](https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/docs/toolkit.md) covers single-clip attacks, custom budgets, the survival prediction and every
 difference from the paper's code.
 
 ## Data
 
 | | Repository | Access | License |
 |---|---|---|---|
-| **Real** | 2,632 clips of briefings, speeches, legislatures and protests | Open, no form | Each clip's own: public domain, CC BY or CC BY-SA |
-| **Generated** | 10,800 clips from 8 open text-to-video generators, with prompts and settings | Gated, automatic approval | Research on detection, see the dataset card |
+| **Real** | [CivicBench-real](https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-real): 2,632 clips of briefings, speeches, legislatures, and protests | Open, no form | Each clip's own: public domain, CC BY or CC BY-SA |
+| **Generated** | [CivicBench-generated](https://huggingface.co/datasets/kurbanintelligencelab/CivicBench-generated): 10,800 clips from eight open text-to-video generators, with prompts and settings | Gated, automatic approval | Research on detection, see the dataset card |
 
 Each real clip lists its creator, license, source page, start time and the changes we made. The official test input is
 11 frames of 512 x 512 per clip, stored as lossless PNG with checksums.
@@ -143,7 +143,7 @@ external political footage. To add a detector, open a pull request with the `res
 
 Tau-Anchor is the detector from the paper. It fine-tunes an image encoder that was pre-trained on attacked images,
 attacks real and generated clips during training, and adds a margin term for the fakes nearest its deployed threshold.
-Its code, exact training recipe and model card are in [`tau_anchor/`](tau_anchor/). The weights are published on
+Its code, exact training recipe and model card are in [`tau_anchor/`](https://github.com/KurbanIntelligenceLab/CivicBench/tree/main/tau_anchor). The weights are published on
 Hugging Face with the release.
 
 ## Repository layout
@@ -165,17 +165,19 @@ through the contact on the dataset card and we will remove it.
 ## Citation
 
 ```bibtex
-@inproceedings{civicbench2027,
-  title     = {Hiding Fakes and Framing Real Footage: A Benchmark and a Robust Detector for AI-Generated Political Video},
-  author    = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
-  booktitle = {<venue>},
-  year      = {2027}
+@misc{cakiroglu2026civicbench,
+  title         = {CivicBench: Robust Detection of AI-Generated Political Video},
+  author        = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
+  year          = {2026},
+  eprint        = {XXXX.XXXXX},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
 }
 ```
 
 ## License
 
-The code is released under the [Apache License 2.0](LICENSE). The data follow the licenses in the table above and on
+The code is released under the [Apache License 2.0](https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/LICENSE). The data follow the licenses in the table above and on
 each dataset card. Generated clips also follow the terms of the generator that rendered them.
 
 ## Acknowledgements
