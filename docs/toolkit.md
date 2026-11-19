@@ -15,7 +15,7 @@ pip install ".[data]"         # + pyarrow, Pillow, datasets to load the parquet 
 pip install ".[fancy]"        # + rich for the live progress line (a built-in fallback exists)
 ```
 
-Python 3.9 or newer.
+Python 3.10 or newer.
 
 ## Your detector
 

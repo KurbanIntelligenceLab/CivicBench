@@ -26,7 +26,7 @@
   <a href="https://huggingface.co/datasets/kurbanintelligencelab/CivicBench"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://pypi.org/project/civicbench/"><img alt="PyPI" src="https://img.shields.io/badge/pip%20install-civicbench-3775A9?style=flat-square&logo=pypi&logoColor=white"></a>
   <a href="https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A7BBB?style=flat-square"></a>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white">
 </p>
 
 <p align="center">
@@ -69,7 +69,7 @@ pip install "civicbench[data]"      # + loading from Hugging Face
 pip install "civicbench[fancy]"     # + the rich progress display
 ```
 
-Python 3.9 or newer.
+Python 3.10 or newer.
 
 ## Quick start
 
