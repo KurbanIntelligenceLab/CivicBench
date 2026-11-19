@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-dark.jpg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-light.jpg">
-    <img alt="CivicBench. Hiding fakes. Framing real footage." src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/banner-light.jpg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.jpg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/banner-light.jpg">
+    <img alt="CivicBench. Hiding fakes. Framing real footage." src="docs/assets/banner-light.jpg" width="100%">
   </picture>
 </p>
 
@@ -48,7 +48,7 @@ wants to dismiss a real video can then point to the detector's verdict.
 CivicBench measures both, on clips that can be shared, and one command runs it on your own detector.
 
 <p align="center">
-  <img alt="Attacks on political video in both directions" src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/teaser.jpg" width="100%">
+  <img alt="Attacks on political video in both directions" src="docs/assets/teaser.jpg" width="100%">
 </p>
 
 ## Highlights
@@ -87,7 +87,7 @@ civicbench evaluate --detector my_lab.detector:build --budgets 1,2,4,8,16 --out 
 ```
 
 <p align="center">
-  <img alt="civicbench in a terminal" src="https://raw.githubusercontent.com/KurbanIntelligenceLab/CivicBench/main/docs/assets/terminal.png" width="100%">
+  <img alt="civicbench in a terminal" src="docs/assets/terminal.png" width="100%">
 </p>
 
 <sub>Output of <code>examples/demo_toy.py</code>: a toy detector on synthetic clips, so the numbers carry no meaning.

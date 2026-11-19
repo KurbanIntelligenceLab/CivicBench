@@ -11,6 +11,11 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+      - name: Absolute image and file links in the README, so PyPI can show them
+        run: |
+          base="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}"
+          sed -i -E "s#(src|srcset)=\"docs/#\1=\"${base}/docs/#g" README.md
+          grep -c "${base}" README.md
       - run: python -m pip install build
       - run: python -m build
       - uses: actions/upload-artifact@v4
