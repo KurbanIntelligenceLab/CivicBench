@@ -103,7 +103,16 @@ class ClipSet:
             import datasets
         except ImportError as e:            # pragma: no cover - depends on the environment
             raise ImportError("loading from a Hugging Face repo needs `pip install civicbench[data]`") from e
-        yield from datasets.load_dataset(repo, split=self.split or "test", streaming=True)
+        split = self.split or "test"
+        ds = None
+        if self.label is not None:          # read only that label's config ("real" / "generated"), not the whole set
+            try:
+                ds = datasets.load_dataset(repo, ("real", "generated")[self.label], split=split, streaming=True)
+            except ValueError:              # the repo has no such config: stream everything and filter
+                ds = None
+        if ds is None:
+            ds = datasets.load_dataset(repo, split=split, streaming=True)
+        yield from ds
 
     def _n_rows(self) -> Optional[int]:
         try:

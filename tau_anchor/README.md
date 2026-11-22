@@ -53,8 +53,8 @@ civicbench evaluate --detector tau_anchor.detector:build --data path/to/civicben
 The first call downloads the Tau-Anchor weights (about 320 MB) and the Delta-CLIP checkpoint (about 4 GB, read on the
 CPU). On a GPU, scoring a clip takes under a second.
 
-> The weights repository `KurbanIntelligenceLab/Tau-Anchor` is a placeholder until the release. Pass a local file with
-> `TauAnchorDetector.from_pretrained("tau_anchor.pt")`.
+The weights are on Hugging Face at [`kurbanintelligencelab/Tau-Anchor`](https://huggingface.co/kurbanintelligencelab/Tau-Anchor).
+To load a local copy, pass the file: `TauAnchorDetector.from_pretrained("tau_anchor_aigvd_fold0.pt")`.
 
 ### Thresholds
 
@@ -245,7 +245,8 @@ below). They were trained on clips of AIGVDBench. Its generated clips follow the
 them. One of them, HunyuanVideo, is licensed under the Tencent Hunyuan Community License, which restricts the
 territories of use and the use of its outputs to improve other AI models.
 
-**To be confirmed at release:** the license of the weights.
+The weights are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Please credit Delta-CLIP and
+CivicBench (citations below).
 
 ## Citation
 

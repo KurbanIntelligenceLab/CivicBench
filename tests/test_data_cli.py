@@ -106,5 +106,37 @@ class TestDefaultSource(unittest.TestCase):
             civicbench.load([])
 
 
+class TestHubConfigs(unittest.TestCase):
+    """A label filter on a Hugging Face repo reads only that label's config; without one, the default config."""
+
+    def _run(self, label, configs):
+        import types
+        from unittest import mock
+        calls = []
+
+        def fake_load_dataset(repo, name=None, split=None, streaming=None):
+            calls.append(name)
+            if name is not None and name not in configs:
+                raise ValueError(f"BuilderConfig '{name}' not found")
+            return [{"clip_id": "x", "label": 0 if name == "real" else 1, "frames": []}]
+
+        fake = types.SimpleNamespace(load_dataset=fake_load_dataset)
+        with mock.patch.dict(sys.modules, {"datasets": fake}):
+            rows = list(civicbench.load("org/repo", label=label, verify=False, quiet=True)._hub("org/repo"))
+        return calls, rows
+
+    def test_label_uses_its_config(self):
+        calls, _ = self._run("real", {"real", "generated"})
+        self.assertEqual(calls, ["real"])
+
+    def test_missing_config_falls_back_to_default(self):
+        calls, _ = self._run("generated", set())
+        self.assertEqual(calls, ["generated", None])
+
+    def test_no_label_reads_default(self):
+        calls, _ = self._run(None, {"real", "generated"})
+        self.assertEqual(calls, [None])
+
+
 if __name__ == "__main__":
     unittest.main()

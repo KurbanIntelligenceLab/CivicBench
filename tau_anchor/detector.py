@@ -28,8 +28,8 @@ import torch
 
 from tau_anchor.model import TauAnchor, load
 
-# TO BE CONFIRMED at release: the Hugging Face repo id and file name of the released weights.
-DEFAULT_WEIGHTS = "KurbanIntelligenceLab/Tau-Anchor"
+# The released weights: Hugging Face model repo and file name.
+DEFAULT_WEIGHTS = "kurbanintelligencelab/Tau-Anchor"
 WEIGHTS_FILE = "tau_anchor_aigvd_fold0.pt"
 
 # Thresholds of the released model (AIGVDBench fold 0). TAU_DEPLOYED was computed in training from scores under
