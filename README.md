@@ -169,10 +169,7 @@ through the contact on the dataset card and we will remove it.
 @misc{cakiroglu2026civicbench,
   title         = {CivicBench: Robust Detection of AI-Generated Political Video},
   author        = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
-  year          = {2026},
-  eprint        = {XXXX.XXXXX},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CV}
+  year          = {2026}
 }
 ```
 
