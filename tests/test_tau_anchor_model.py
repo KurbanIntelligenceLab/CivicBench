@@ -106,7 +106,10 @@ class TestScore(unittest.TestCase):
             self.assertAlmostEqual(float(b[1]), float(det(xb[1])), places=5)
             self.assertEqual(float(det(xb[0].double())), float(det(xb[0])))
         self.assertEqual((det.tau, det.tau_civicbench), (0.1, 0.2))
-        self.assertEqual(det.flagged(xb[0], tau=float(b[0])), True)
+        with torch.no_grad():
+            s0 = float(det(xb[0]))      # the single-clip score: a batched score can differ in the last bit
+        self.assertTrue(det.flagged(xb[0], tau=s0))
+        self.assertFalse(det.flagged(xb[0], tau=s0 + 1e-3))
 
     def test_with_civicbench(self):
         det = TauAnchorDetector(tiny_model())
