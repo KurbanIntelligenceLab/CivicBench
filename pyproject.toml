@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "civicbench"
-version = "0.1.0"
+version = "0.1.1"
 description = "Load CivicBench and attack your own video detector with the benchmark's protocol (PGD, APGD and Square on the 8-bit grid)."
 readme = "README.md"
 requires-python = ">=3.10"

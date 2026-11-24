@@ -22,7 +22,7 @@ from civicbench.frames import realize, to_tensor
 from civicbench.margin import margin_reach, predict_survival
 from civicbench.metrics import auc, threshold_at_fpr
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = ["load", "attack", "evaluate", "predict_survival", "margin_reach", "score", "threshold_at_fpr", "auc",
            "AttackResult", "Clip", "ClipSet", "DEFAULT_REPO", "DEFAULT_BUDGETS", "DEFAULT_ATTACKS", "FAMILIES",
