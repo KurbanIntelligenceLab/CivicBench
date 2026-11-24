@@ -21,5 +21,7 @@ preferred-citation:
   type: article
   title: "CivicBench: Robust Detection of AI-Generated Political Video"
   authors: *authors
-  journal: "arXiv preprint arXiv:XXXX.XXXXX"
+  journal: "arXiv preprint arXiv:2611.29766"
   year: 2026
+  doi: "10.48550/arXiv.2611.29766"
+  url: "https://arxiv.org/abs/2611.29766"

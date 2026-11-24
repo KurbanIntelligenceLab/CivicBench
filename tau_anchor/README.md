@@ -1,6 +1,6 @@
 # Tau-Anchor
 
-**Tau-Anchor** is the detector of AI-generated video from the CivicBench paper. It is built to keep its verdicts when
+**Tau-Anchor** is the detector of AI-generated video from the [CivicBench paper](https://arxiv.org/abs/2611.29766). It is built to keep its verdicts when
 an attacker changes each pixel by a few gray levels, in both directions: hiding a fake (**evasion**) and making real
 footage look generated (**framing**).
 
@@ -254,7 +254,11 @@ CivicBench (citations below).
 @misc{cakiroglu2026civicbench,
   title         = {CivicBench: Robust Detection of AI-Generated Political Video},
   author        = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
-  year          = {2026}
+  year          = {2026},
+  eprint        = {2611.29766},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2611.29766}
 }
 
 @article{wang2025double,

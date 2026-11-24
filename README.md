@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <a href="#citation"><img alt="Paper" src="https://img.shields.io/badge/Paper-arXiv-B31B1B?style=flat-square&logo=arxiv&logoColor=white"></a>
+  <a href="https://arxiv.org/abs/2611.29766"><img alt="Paper" src="https://img.shields.io/badge/arXiv-2611.29766-B31B1B?style=flat-square&logo=arxiv&logoColor=white"></a>
   <a href="https://huggingface.co/datasets/kurbanintelligencelab/CivicBench"><img alt="Dataset" src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black"></a>
   <a href="https://pypi.org/project/civicbench/"><img alt="PyPI" src="https://img.shields.io/badge/pip%20install-civicbench-3775A9?style=flat-square&logo=pypi&logoColor=white"></a>
   <a href="https://github.com/KurbanIntelligenceLab/CivicBench/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-0A7BBB?style=flat-square"></a>
@@ -143,7 +143,7 @@ external political footage. To add a detector, open a pull request with the `res
 
 ## Tau-Anchor
 
-Tau-Anchor is the detector from the paper. It fine-tunes an image encoder that was pre-trained on attacked images,
+Tau-Anchor is the detector from the [paper](https://arxiv.org/abs/2611.29766). It fine-tunes an image encoder that was pre-trained on attacked images,
 attacks real and generated clips during training, and adds a margin term for the fakes nearest its deployed threshold.
 Its code, exact training recipe and model card are in [`tau_anchor/`](https://github.com/KurbanIntelligenceLab/CivicBench/tree/main/tau_anchor). The weights are on
 Hugging Face at [`kurbanintelligencelab/Tau-Anchor`](https://huggingface.co/kurbanintelligencelab/Tau-Anchor).
@@ -169,7 +169,11 @@ through the contact on the dataset card and we will remove it.
 @misc{cakiroglu2026civicbench,
   title         = {CivicBench: Robust Detection of AI-Generated Political Video},
   author        = {Cakiroglu, Mert Onur and Buxton, Elham and Dalkilic, Mehmet and Kurban, Hasan},
-  year          = {2026}
+  year          = {2026},
+  eprint        = {2611.29766},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2611.29766}
 }
 ```
 
